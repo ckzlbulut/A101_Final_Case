@@ -1,6 +1,6 @@
 package Web_Element_Pages;
 
-import Utilities.Driver;
+import Utilities.DriverManager;
 import Utilities.Tools;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,13 +10,13 @@ import java.util.List;
 
 public class ProductContent extends Tools {
     public ProductContent() {
-        PageFactory.initElements(Driver.setupProcess(), this);
+        PageFactory.initElements(DriverManager.setupProcess(), this);
     }
     @FindBy(css = ".productListContent-zAP0Y5msy8OHn5z7T_K_")
     private List<WebElement> searchProducts;
 
     @FindBy(xpath = "(//*[@class='add-to-basket button small'])[1]")
-    private WebElement differentSeller;
+    public List<WebElement> differentSeller;
 
     @FindBy(css = "button[id='addToCart']")
     private WebElement addToCard;
@@ -28,14 +28,13 @@ public class ProductContent extends Tools {
     public List<WebElement> productsInShoppingCard;
 
 
-
     WebElement myElement;
     public void findAndClick(String strElement) {
 
         switch (strElement) {
             case "searchProducts":myElement=searchProducts.get(0);break;
             case "addToCard":myElement=addToCard;break;
-            case "differentSeller":myElement=differentSeller;break;
+            case "differentSeller":myElement=differentSeller.get(0);break;
             case "deleteProductOne":myElement=deleteProductOne;break;
         }
         clickFunction(myElement);

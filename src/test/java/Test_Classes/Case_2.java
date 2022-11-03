@@ -2,50 +2,26 @@ package Test_Classes;
 
 import Web_Element_Pages.MainContent;
 import Web_Element_Pages.ProductContent;
-import Utilities.Driver;
+import Utilities.DriverManager;
 import Utilities.Log;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-
 import java.util.Set;
 
-public class finalCase1 extends Driver{
+public class Case_2 extends DriverManager {
+    MainContent mc = new MainContent();
+    ProductContent pc = new ProductContent();
 
-
-    MainContent mc=new MainContent();
-    ProductContent pc=new ProductContent();
-
-    @Parameters({"email","password"})
+    @Parameters("product")
     @Test
-    public void loginTest(String email,String password)
-    {
+    public void case2(String product) {
         Log.info("Navigate to hepsiburada main page");
 
         mc.findAndClick("accept");
         Log.info("Cookies accepted...");
-
-        mc.mouseOverAndClick("login","loginPage");
-        Log.info("Steps completed for access to login page...");
-
-        mc.findAndSend("email",email);
-        Log.info("Valid email address entered...");
-
-        mc.findAndClick("continueLogin");
-        Log.info("Passed to password page...");
-
-        mc.findAndSend("loginPassword",password);
-        Log.info("Valid password entered...");
-
-        mc.findAndClick("loginButton");
-        Log.info("User login successfully.");
-    }
-
-    @Parameters("product")
-    @Test(dependsOnMethods = "loginTest")
-    public void productTest(String product) {
 
         mc.findAndSend("searchBox", product);
         Log.info("Product name entered..");
@@ -81,10 +57,9 @@ public class finalCase1 extends Driver{
         Log.info("Checked that the products are the same... ");
 
         pc.findAndClick("deleteProductOne");
-        Driver.setupProcess().navigate().refresh();
+        driver.navigate().refresh();
         pc.findAndClick("deleteProductOne");
         Log.info("The products in the basket were deleted after the test...");
-
 
     }
 }

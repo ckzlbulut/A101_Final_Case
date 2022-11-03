@@ -1,19 +1,18 @@
 package Utilities;
 
-import org.junit.Assert;
-import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.List;
 
-public class Tools extends Driver {
-    public static WebDriverWait wait = new WebDriverWait(Driver.setupProcess(), Duration.ofSeconds(30));
+public class Tools extends DriverManager {
+    public static WebDriverWait wait = new WebDriverWait(DriverManager.setupProcess(), Duration.ofSeconds(30));
+    WebDriver driver = DriverManager.setupProcess();
 
     public void clickFunction(WebElement element) {
         elementToBeClickable(element);
@@ -26,22 +25,6 @@ public class Tools extends Driver {
         element.sendKeys(text);
     }
 
-    public void verifyContainsText(WebElement element, String text) {
-        elementToBeVisible(element);
-        Assert.assertTrue(element.getText().toLowerCase().contains(text.toLowerCase()));
-    }
-
-    public void selectFunctionByText(WebElement element, String text) {
-        elementToBeVisible(element);
-        Select select = new Select(element);
-        select.selectByVisibleText(text);
-    }
-
-    public void selectFunctionByIndex(WebElement element, int index) {
-        elementToBeVisible(element);
-        Select select = new Select(element);
-        select.selectByIndex(index);
-    }
     public void clickAfterMouseOver(WebElement mouseOver, WebElement element) {
         elementToBeClickable(mouseOver);
         Actions actios = new Actions(driver);
@@ -51,26 +34,21 @@ public class Tools extends Driver {
         clickFunction(element);
     }
 
-    public void clickElementInTheList(List<WebElement> list,int index)
-    {
+    public void clickElementInTheList(List<WebElement> list, int index) {
         waitForAllElements(list);
         clickFunction(list.get(index));
-    }
-
-    public void scrollToElement(WebElement element) {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView();", element);
     }
 
     public void elementToBeClickable(WebElement element) {
         wait.until(ExpectedConditions.elementToBeClickable(element));
     }
+
     public void elementToBeVisible(WebElement element) {
         wait.until(ExpectedConditions.visibilityOf(element));
     }
+
     public void waitForAllElements(List<WebElement> elementList) {
         wait.until(ExpectedConditions.visibilityOfAllElements(elementList));
     }
-
 
 }

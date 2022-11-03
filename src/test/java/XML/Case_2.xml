@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Suite1" verbose="1">
+
+    <listeners>
+        <listener class-name="Utilities.TestListener"/>
+    </listeners>
+
+    <parameter name="product" value="bilgisayar çantası"/>
+
+    <test name="Case 2">
+        <classes>
+            <class name="Test_Classes.Case_2"/>
+        </classes>
+    </test>
+
+</suite>

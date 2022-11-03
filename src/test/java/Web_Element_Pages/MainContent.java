@@ -1,20 +1,19 @@
 package Web_Element_Pages;
 
-import Utilities.Driver;
+import Utilities.DriverManager;
 import Utilities.Tools;
-import org.openqa.selenium.By;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 
 public class MainContent extends Tools {
+
     public MainContent() {
-        PageFactory.initElements(Driver.setupProcess(), this);
+        PageFactory.initElements(DriverManager.setupProcess(), this);
     }
+    @FindBy(css = "[title='Hesabım']")
+    public WebElement loginAssertPoint;
     @FindBy(xpath = "//*[text()='Kabul Et']")
     private WebElement accept;
     @FindBy(css = "[class='desktopOldAutosuggestTheme-UyU36RyhCTcuRs_sXL9b']")
@@ -70,21 +69,6 @@ public class MainContent extends Tools {
             }
         }
         clickAfterMouseOver(myElement,myElementTwo);
-    }
-
-    public void SearchAndDelete(String searchText) {
-
-        //scrollUp()
-        findAndSend("searchInput", searchText); // aranacak kelimeyi kutucuğa gönder
-        findAndClick("searchButton"); // arama butonuna bas
-
-        //waitUntilLoading();
-
-        WebDriverWait wait = new WebDriverWait(Driver.setupProcess(), Duration.ofSeconds(30));
-        wait.until(ExpectedConditions.textToBe(By.cssSelector("div[fxlayoutalign='center center'][class='control-full']"), "Search"));
-
-        findAndClick("deleteButton");// silme butonua bas
-        findAndClick("deleteDialogBtn");// dilogdaki silme butonuna bas
     }
 
 

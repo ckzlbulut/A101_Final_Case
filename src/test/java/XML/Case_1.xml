@@ -1,14 +1,18 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 
-<suite name="Suite1" verbose="1" >
+<suite name="Case1" verbose="1">
+
+    <listeners>
+        <listener class-name="Utilities.TestListener"/>
+    </listeners>
 
     <parameter name="email" value="ckzlbulut@gmail.com"/>
     <parameter name="password" value="19732580"/>
     <parameter name="product" value="bardak"/>
 
-    <test name="loginTest">
+    <test name="Case 1">
         <classes>
-            <class name="Test_Classes.finalCase1"/>
+            <class name="Test_Classes.Case_1"/>
         </classes>
     </test>
 
