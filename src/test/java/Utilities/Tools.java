@@ -10,6 +10,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.List;
 
+// This class has been created to use the methods and actions used many times in tests without repetition.
+
 public class Tools extends DriverManager {
     public static WebDriverWait wait = new WebDriverWait(DriverManager.setupProcess(), Duration.ofSeconds(30));
     WebDriver driver = DriverManager.setupProcess();

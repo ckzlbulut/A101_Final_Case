@@ -18,9 +18,11 @@ public class DriverManager {
     @BeforeClass
     public static WebDriver setupProcess() {
 
+        // Lines 22 and 23 have been added for the texts that we do not want to appear in the console.
         Logger.getLogger("").setLevel(Level.SEVERE);
         System.setProperty(org.slf4j.impl.SimpleLogger.DEFAULT_LOG_LEVEL_KEY, "Error");
 
+        // On lines 26 and 38, we perform the driver setup process according to the options we want.
         if (driver == null) {
             ChromeOptions options = new ChromeOptions();
             options.addArguments("incognito", "acceptInsecureCerts", "ignore-certificate-errors", "allow-insecure-localhost"
@@ -35,6 +37,7 @@ public class DriverManager {
         return driver;
     }
 
+    // In this method, the driver exit process is performed after the test.
     @AfterClass
     public static void quitDriver() {
         try {

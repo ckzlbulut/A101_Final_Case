@@ -60,6 +60,7 @@ public class Case_1 extends DriverManager {
         pc.clickInTheListByIndex("myList",0);
         Log.info("1. product selected from the searching result...");
 
+        // Since it opens in a new window when the product is selected, we switch to the new window to continue.
         Set<String> allWindows = driver.getWindowHandles();
         for (String window : allWindows) {
             driver.switchTo().window(window);
@@ -84,6 +85,7 @@ public class Case_1 extends DriverManager {
         }
         Log.info("Checked that the products are the same... ");
 
+        // The steps after this line are created to delete the products in the cart after the test.
         pc.findAndClick("deleteProductOne");
         driver.navigate().refresh();
         pc.findAndClick("deleteProductOne");

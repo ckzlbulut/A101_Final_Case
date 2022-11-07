@@ -1,6 +1,8 @@
 
 #       This is a basic project created with TestNG based on POM
 ##      Used Technologies : Java, OOP, TestNG, Maven Repository, log4j  
+##      !! Warning => If you want to run Case_1, run it by entering the required account information and password in the Case_1.xml file and run it from xml.
+
 ####    Test Classes package :
 ####  - The part where the test case is written. The steps here are detailed with string expressions and automation codes are completed with the methods created in the classes in the "Web Element Pages" package.
 

@@ -28,6 +28,10 @@ public class ProductContent extends Tools {
     public List<WebElement> productsInShoppingCard;
 
 
+    // The methods after this line have been created to be used by converting the values from the test codes
+    // as Strings to Web elements and sending them to the methods in the Tools class that need to do the action.
+    // Thus, a framework that is useful and easy to use just by finding the Locator is created.
+    // and at the same time, someone who studies the test classes can examine what the steps are without the clutter of code.
     WebElement myElement;
     public void findAndClick(String strElement) {
 

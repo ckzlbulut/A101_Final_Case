@@ -5,6 +5,9 @@ import org.testng.ITestListener;
 import org.testng.ITestResult;
 
 public class TestListener implements ITestListener {
+
+    //This interface class implements the methods we want to be applied before, during and after each test.
+
     @Override
     public void onTestStart(ITestResult result) {
         Log.info(result.getMethod().getMethodName() + " Started");

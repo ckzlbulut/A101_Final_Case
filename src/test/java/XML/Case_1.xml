@@ -6,8 +6,8 @@
         <listener class-name="Utilities.TestListener"/>
     </listeners>
 
-    <parameter name="email" value="ckzlbulut@gmail.com"/>
-    <parameter name="password" value="19732580"/>
+    <parameter name="email" value="PLEASE ENTER THE VALİD HEPSİ BURADA ACCOUNT EMAİL "/>
+    <parameter name="password" value="PLEASE ENTER THE VALİD HEPSİ BURADA ACCOUNT PASSWORD "/>
     <parameter name="product" value="bardak"/>
 
     <test name="Case 1">
